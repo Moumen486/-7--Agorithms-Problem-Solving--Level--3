@@ -1,0 +1,71 @@
+#include<iostream>
+#include<string>
+#include<iomanip>
+using namespace std;
+
+int Randomnumber(int from, int to)
+{
+	int randum = rand() % (to - from + 1) + from;
+	return randum;
+}
+void FillMatrixWithRandomNumbers(int arr[3][3], short Rows, short Cols)
+{
+	for (short i = 0; i < Rows; i++)
+	{
+		for (short j = 0; j < Cols; j++)
+		{
+			arr[i][j] = Randomnumber(1, 100);
+		}
+	}
+}
+void PrintMatrix(int arr[3][3], int Rows, int Cols)
+{
+	for (short i = 0; i < Rows; i++)
+	{
+		for (short j = 0; j < Cols; j++)
+		{
+			//cout << setw(3) << arr[i][j] << "      ";
+			printf(" %0*d  ", 2, arr[i][j]);
+		}
+		cout << "\n";
+	}
+
+}
+void PrintMiddleRowOfTheMatrix(int arr[3][3], short Rows, short Cols)
+{
+	short MiddleRow = Rows / 2;
+	for (short j = 0; j < Cols; j++)
+	{
+		printf(" %0*d ", 2, arr[MiddleRow][j]);
+	}
+	cout << "\n";
+}
+void PrintMiddleColOfTheMatrix(int arr[3][3], short Rows, short Cols)
+{
+	short MiddleCol = Cols / 2;
+	for (short j = 0; j < Rows; j++)
+	{
+		printf(" %0*d ", 2, arr[j][MiddleCol]);
+	}
+	cout << "\n";
+}
+
+int main()
+{
+	//Seeds the random number genrator in c++, called only once
+	srand((unsigned)time(NULL));
+
+	int arr[3][3];
+
+	FillMatrixWithRandomNumbers(arr, 3, 3);
+
+	cout << "\n Matrix : \n";
+	PrintMatrix(arr, 3, 3);
+	cout << "\n The Middle Row: \n";
+	PrintMiddleRowOfTheMatrix(arr, 3, 3);
+	cout << "\n The Middle Cols\n";
+	PrintMiddleColOfTheMatrix(arr, 3, 3);
+
+	
+	return 0;
+}

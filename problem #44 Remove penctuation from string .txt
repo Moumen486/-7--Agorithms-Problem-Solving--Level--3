@@ -1,0 +1,36 @@
+#include<iostream>
+#include<string>
+#include<iomanip>
+#include<vector>
+using namespace std;
+string Readstring()
+{
+	string  S1;
+	cout << "\n Please entre the string: \n";
+	getline(cin, S1);
+
+	return S1;
+}
+string RemovePectuationFromString(string S1)
+{
+	string S2 = "";
+	for (short i = 0; i < S1.length(); i++)
+	{
+		if (!ispunct(S1[i]))
+		{
+			S1 += S1[i]; 
+		}
+	}
+	return S2;
+}
+int main()
+{
+	string S1 = "Welcome :To Jordan,Jordan is a, nice; country";
+
+	cout << "/n Original String: \n" << S1;
+	cout << "\n String After Remove Panctuation: \n" << RemovePectuationFromString(S1) << endl;
+	
+
+
+	return 0;
+}

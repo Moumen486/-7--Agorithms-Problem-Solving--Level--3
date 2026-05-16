@@ -1,0 +1,44 @@
+#include<iostream>
+#include<string>
+#include<iomanip>
+using namespace std;
+
+void FillMatrixWithOrdredNumbers(int arr[3][3], short Rows, short Cols)
+{
+	short counter = 0;
+	for (int i = 0; i < Rows; i++)
+	{
+		for (int j = 0; j < Cols; j++)
+		{
+			counter++;
+			arr[i][j] = counter;
+		}
+	}
+}
+void PrintMatrix(int arr[3][3], short Rows, short Cols)
+{
+	for (int i = 0; i < Rows; i++)
+	{
+		for (int j = 0; j < Cols; j++)
+		{
+			cout << arr[i][j] << "     ";
+		}
+		cout << "\n";
+	}
+}
+
+int main()
+{
+	//Seeds the random number genrator in c++, called only once
+	
+
+	int arr[3][3];
+
+	FillMatrixWithOrdredNumbers(arr, 3, 3);
+	cout << "Following matrix with ordered numbers are: \n";
+	PrintMatrix(arr, 3, 3);
+
+	system("paused>0");
+
+	return 0;
+}

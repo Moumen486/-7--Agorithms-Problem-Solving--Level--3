@@ -1,0 +1,30 @@
+#include<iostream>
+#include<string>
+#include<iomanip>
+using namespace std;
+char ReadChar()
+{
+	char S1;
+	cout << "\n Please entre your Lettre: \n";
+	cin >> S1;
+	
+	return S1;
+}
+char InvertLettreCase(char S1)
+{
+	return isupper(S1) ? tolower(S1) : toupper(S1);
+
+}
+
+int main()
+{
+	char S1 = ReadChar();
+
+	cout << "\n Char After Inverting : \n";
+	cout << InvertLettreCase(S1) << endl;
+
+
+	
+
+	return 0;
+}

@@ -1,0 +1,63 @@
+#include<iostream>
+#include<string>
+#include<iomanip>
+using namespace std;
+string ReadString()
+{
+	string S1;
+	cout << "\n Please entre your string: \n";
+	getline(cin, S1);
+
+	return S1;
+}
+char ReadChar()
+{
+	char S2;
+	cout << "\n Please entre the chrachter: \n";
+	cin >> S2;
+
+	return S2;
+}
+char InvertLettreCase(char S2)
+{
+	return isupper(S2) ? tolower(S2) : toupper(S2);
+
+}
+int CountSmallCharachter(string S1,char S2,bool MatchCase=true )
+{
+	int count = 0;
+	for (short i = 0; i < S1.length(); i++)
+	{
+		if (MatchCase)
+		{
+			if (S1[i] == S2)
+				count++;
+		}
+		else
+		{
+			if (tolower(S1[i]) == tolower(S2))
+				count++; 
+		}
+	}
+	return count;
+}
+int main()
+{
+	string S1 = ReadString();
+
+	char S2 = ReadChar();
+
+	cout << "\n Letters " << S2 << " Count= " << CountSmallCharachter(S1, S2) << endl;
+	
+	cout << "\n Lettre " << S2 << " or " << InvertLettreCase(S2) << " count= " << CountSmallCharachter(S1, S2, false) << endl;
+
+
+
+
+
+
+
+
+
+	return 0;
+}

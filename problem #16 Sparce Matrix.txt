@@ -1,0 +1,74 @@
+#include<iostream>
+#include<string>
+#include<iomanip>
+using namespace std;
+
+int Randomnumber(int from, int to)
+{
+	int randum = rand() % (to - from + 1) + from;
+	return randum;
+}
+void FillMatrixWithRandomNumbers(int arr[3][3], short Rows, short Cols)
+{
+	for (short i = 0; i < Rows; i++)
+	{
+		for (short j = 0; j < Cols; j++)
+		{
+			arr[i][j] = Randomnumber(1, 100);
+		}
+	}
+}
+void PrintMatrix(int arr[3][3], int Rows, int Cols)
+{
+	for (short i = 0; i < Rows; i++)
+	{
+		for (short j = 0; j < Cols; j++)
+		{
+			//cout << setw(3) << arr[i][j] << "      ";
+			printf(" %0*d  ", 2, arr[i][j]);
+		}
+		cout << "\n";
+	}
+
+}
+int CountNumberInMatrix(int arr[3][3],int Number ,short Rows, short Cols)
+{
+	int counter = 0;
+		for (short  i = 0; i < Rows; i++)
+		{
+			for (short j = 0; j < Cols; j++)
+			{
+				if (arr[i][j] == Number)
+				{
+					counter++;
+				}
+			}
+		}
+		return counter;
+}
+bool IsMatrixSparcy(int arr[3][3], short Rows, short Cols)
+{
+	short MatrixSize = Cols * Rows;
+	return(CountNumberInMatrix(arr, 0,3, 3) >= (MatrixSize/2));
+}
+int main()
+{
+	//Seeds the random number genrator in c++, called only once
+	srand((unsigned)time(NULL));
+
+	int arr[3][3] = { {0,0,3},{1,0,0},{0,0,0} };
+	int Number;
+	//FillMatrixWithRandomNumbers(arr, 3, 3);
+
+	cout << "\n Matrix 01: \n";
+	PrintMatrix(arr, 3, 3);
+	
+	if (IsMatrixSparcy(arr, 3, 3) )
+		cout << "yah! The matrix is sparace :))\n";
+	else
+		cout << "Naah! The matrix is not sparace :((\n";
+
+	system("pause>0");
+
+	return 0;
+}

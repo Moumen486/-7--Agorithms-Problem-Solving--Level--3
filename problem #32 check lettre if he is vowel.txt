@@ -1,0 +1,43 @@
+#include<iostream>
+#include<string>
+#include<iomanip>
+using namespace std;
+
+char ReadChar()
+{
+	char S2;
+	cout << "\n Please entre the chrachter: \n";
+	cin >> S2;
+
+	return S2;
+}
+char InvertLettreCase(char S2)
+{
+	return isupper(S2) ? tolower(S2) : toupper(S2);
+
+}
+bool IsItVowel(string S1,char S2)
+{
+	for (short i = 0; i < S1.length(); i++)
+	{
+		if (tolower(S1[i]) ==tolower(S2))
+			return true;
+		else
+			return false;
+	}
+}
+int main()
+{
+	string S1 = "aeiou";
+	char S2 = ReadChar();
+
+	if (IsItVowel(S1,S2))
+		cout << " yah! this letter is vowel :)\n";
+	else
+		cout << " Nah ! this letter is not a vowel :(\n";
+
+	
+
+
+	return 0;
+}

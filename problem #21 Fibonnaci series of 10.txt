@@ -1,0 +1,25 @@
+#include<iostream>
+#include<string>
+#include<iomanip>
+using namespace std;
+
+void PrintFebbonaciSeriesUsingLoop(short Number)
+{
+	int FebNumber = 0;
+	int prev2 = 0; int prev1 = 1;
+	cout << "1  ";
+	for (short i = 2; i <= Number; i++)
+	{
+		FebNumber = prev1 + prev2;
+		cout << FebNumber << "   ";
+		prev2 = prev1;
+		prev1 = FebNumber;
+	}
+}
+int main()
+{
+
+	PrintFebbonaciSeriesUsingLoop(10);
+
+	return 0;
+}

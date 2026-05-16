@@ -1,0 +1,65 @@
+#include<iostream>
+#include<string>
+#include<iomanip>
+#include<vector>
+using namespace std;
+
+string Readstring()
+{
+	string  S1;
+	cout << "\n Please entre the string: \n";
+	getline(cin, S1);
+
+		return S1;
+}
+vector<string> SplitString(string S1, string Delim)
+{
+	vector<string> vstring;
+
+	short pos = 0;
+	string sWord; //define a string varaible
+
+	//use find() function to gt the position of the delimitrs
+	while ((pos = S1.find(Delim)) != std::string::npos)
+	{
+		sWord = S1.substr(0, pos);// store the word
+		if (sWord != "")
+		{
+			vstring.push_back(sWord);
+		}
+		S1.erase(0, pos + Delim.length()); // erase () until position 
+	}
+	if (S1 != "")
+	{
+		vstring.push_back(S1);
+	}
+
+	return vstring;
+}
+string ReverseWordinString(string S1)
+{
+	vector<string> vstring;
+	string S2 = "";
+	vstring = SplitString(S1, " ");
+
+	//declare iterator
+	vector<string>::iterator iter = vstring.end();
+
+	while (iter != vstring.begin())
+	{
+		
+		--iter;
+
+		S2 += *iter + " ";
+	}
+	S2 = S2.substr(0, S2.length() - 1); //remove last space.
+
+	return S2;
+}
+int main()
+{
+	string S1 = Readstring();
+	cout << "String After Rversion is: ";
+	cout << ReverseWordinString(S1) << endl;
+	return 0;
+}

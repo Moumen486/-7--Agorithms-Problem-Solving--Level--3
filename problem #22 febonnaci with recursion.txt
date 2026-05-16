@@ -1,0 +1,24 @@
+#include<iostream>
+#include<string>
+#include<iomanip>
+using namespace std;
+
+void PrintFebbonaciSeriesUsingLoop(short Number,int prv1,int prv2)
+{
+	int FebNumber = 0;
+	if (Number>0)
+	{
+		FebNumber = prv1 + prv2;
+		prv2 = prv1;
+		prv1 = FebNumber;
+		cout << FebNumber << "  ";
+		PrintFebbonaciSeriesUsingLoop(Number - 1, prv1, prv2);
+	}
+}
+int main()
+{
+
+	PrintFebbonaciSeriesUsingLoop(10,0,1);
+
+	return 0;
+}

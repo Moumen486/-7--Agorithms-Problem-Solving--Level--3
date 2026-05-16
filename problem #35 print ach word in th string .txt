@@ -1,0 +1,66 @@
+#include<iostream>
+#include<string>
+#include<iomanip>
+using namespace std;
+
+string Readstring()
+{
+	string  S1;
+	cout << "\n Please entre the string: \n";
+	getline(cin, S1);
+
+		return S1;
+}
+char InvertLettreCase(char S2)
+{
+	return isupper(S2) ? tolower(S2) : toupper(S2);
+
+}
+void PrintWords(string S1)
+{
+	
+	for (short i = 0; i < S1.length(); i++)
+	{
+		if (S1[i] != ' ')
+
+			cout << S1[i];
+		else
+			cout << "\n";
+	}
+	
+}
+void PrintEachWords(string S1)
+{
+	string delim = " "; // delimiter
+
+	cout << "\n your string words are: \n\n";
+	short pos = 0;
+	string sword;//define a string varaible 
+
+	// use find() function to get the position of the delimiters
+	while ((pos = S1.find(delim)) != std::string::npos)
+	{
+		sword = S1.substr(0, pos);//store the word
+		if (sword != "")
+		{
+			cout<<sword<<endl;
+		}
+		S1.erase(0, pos + delim.length()); //erase() until position and move the next word 
+	}
+	if (S1 != "")
+	{
+		cout << S1 << endl;// it print last word of th string	
+	}
+
+}
+int main()
+{
+
+	PrintEachWords(Readstring());
+
+
+	
+
+
+	return 0;
+}

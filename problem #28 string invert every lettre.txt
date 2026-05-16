@@ -1,0 +1,37 @@
+#include<iostream>
+#include<string>
+#include<iomanip>
+using namespace std;
+string ReadString()
+{
+	string S1;
+	cout << "\n Please entre your string: \n";
+	getline(cin, S1);
+
+	return S1;
+}
+char InvertLettreCase(char S1)
+{
+	return isupper(S1) ? tolower(S1) : toupper(S1);
+
+}
+string InvertAllLetters(string S1)
+{
+	for (short i = 0; i < S1.length(); i++)
+	{
+		S1[i] = InvertLettreCase(S1[i]);
+	}
+	return S1;
+}
+int main()
+{
+	string S1 = ReadString();
+
+	cout << "\n string after inverting : \n";
+	cout << InvertAllLetters(S1) << endl;
+
+
+
+
+	return 0;
+}

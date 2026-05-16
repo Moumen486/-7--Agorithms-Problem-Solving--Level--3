@@ -1,0 +1,42 @@
+#include<iostream>
+#include<string>
+#include<iomanip>
+using namespace std;
+
+string Readstring()
+{
+	string  S1;
+	cout << "\n Please entre the chrachter: \n";
+	getline(cin, S1);
+
+		return S1;
+}
+char InvertLettreCase(char S2)
+{
+	return isupper(S2) ? tolower(S2) : toupper(S2);
+
+}
+int CountVowel(string S1)
+{
+	int counter = 0;
+	for (short i = 0; i < S1.length(); i++)
+	{
+		if (tolower(S1[i]) == 'a' || tolower(S1[i]) == 'e' || tolower(S1[i]) == 'i' || tolower(S1[i]) == 'o' || tolower(S1[i] == 'u'))
+			counter++;
+	}
+
+	return counter;
+}
+int main()
+{
+	string S1 = Readstring();
+
+	cout << "\n Number of Vowels Are: " << CountVowel(S1) << endl;
+
+
+
+	
+
+
+	return 0;
+}

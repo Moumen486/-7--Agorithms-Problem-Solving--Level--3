@@ -1,0 +1,50 @@
+#include<iostream>
+#include<string>
+#include<iomanip>
+using namespace std;
+string ReadString()
+{
+	string S1;
+	cout << "\n Please entre your string: \n";
+	getline(cin, S1);
+
+	return S1;
+}
+char ReadChar()
+{
+	char S2;
+	cout << "\n Please entre the chrachter: \n";
+	cin >> S2;
+
+	return S2;
+}
+int CountCharachter(string S1,char S2)
+{
+	int count = 0;
+	for (short i = 0; i <= S1.length(); i++)
+	{
+		if (S1[i]==S2)
+		{
+			count++;
+		}
+	}
+	return count;
+}
+int main()
+{
+	string S1 = ReadString();
+
+	char S2 = ReadChar();
+
+	cout << "\n Letters " << S2 << " Count= " << CountCharachter(S1, S2) << endl;
+
+
+
+
+
+
+
+
+
+	return 0;
+}

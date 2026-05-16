@@ -1,0 +1,32 @@
+#include<iostream>
+#include<string>
+#include<iomanip>
+using namespace std;
+string ReadString()
+{
+	string S1;
+	cout << "\n Please entre your string: \n";
+	getline(cin, S1);
+	
+	return S1;
+}
+void PrintFirstLettreOfEachWord(string S1)
+{
+	bool IsFirstLettre = true;
+	cout << "\n First Letters Of This String: \n";
+	for (short i = 0; i < S1.length(); i++)
+	{
+		if (S1[i] != ' ' && IsFirstLettre)
+		{
+			cout << S1[i] << endl;
+	   }
+		IsFirstLettre = (S1[i] == ' ' ? true : false);
+	}
+}
+int main()
+{
+
+	PrintFirstLettreOfEachWord(ReadString());
+
+	return 0;
+}

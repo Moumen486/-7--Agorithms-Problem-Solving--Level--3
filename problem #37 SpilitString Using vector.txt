@@ -1,0 +1,74 @@
+#include<iostream>
+#include<string>
+#include<iomanip>
+#include<vector>
+using namespace std;
+
+string Readstring()
+{
+	string  S1;
+	cout << "\n Please entre the string: \n";
+	getline(cin, S1);
+
+		return S1;
+}
+char InvertLettreCase(char S2)
+{
+	return isupper(S2) ? tolower(S2) : toupper(S2);
+
+}
+void PrintWords(string S1)
+{
+	
+	for (short i = 0; i < S1.length(); i++)
+	{
+		if (S1[i] != ' ')
+
+			cout << S1[i];
+		else
+			cout << "\n";
+	}
+	
+}
+vector<string> SplitString(string S1, string Delim)
+{
+	vector<string> vstring;
+	
+	short pos = 0;
+	string sWord; //define a string varaible
+
+	//use find() function to gt the position of the delimitrs
+	while ((pos = S1.find(Delim)) != std::string::npos)
+	{
+		sWord = S1.substr(0, pos);// store the word
+		if (sWord != "")
+		{
+			vstring.push_back(sWord);
+		}
+		S1.erase(0, pos + Delim.length()); // erase () until position 
+	}
+	if (S1 != "")
+	{
+		vstring.push_back(S1);
+	}
+
+	return vstring;
+}
+int main()
+{
+	vector<string> vstring;
+
+	// string S2 = "Mohamed,Ali,Ahmed,Mazen";
+	// vstring = SplitString(Readstring(), ",");
+	vstring = SplitString(Readstring(), " ");
+
+	cout << "Tokens: " << vstring.size() << endl;
+
+	for (string &s : vstring)
+	{
+		cout << s << endl;
+	}
+
+	system("pause>0");
+	return 0;
+}
